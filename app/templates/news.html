@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!--  My Client Profile section start  -->
+<section class="section-content-block section-pure-white-bg" >
+    <div class="container wow slideInUp">
+        <div class="row">
+                {% for news in news %}
+                <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
+                    <div class="highlight-layout-1 theme-custom-box-shadow theme-custom-box-animation">
+                        <figure><a href="{% url 'newsdetails' news.title_to_url%}">
+                        <img src="{{news.image.url}}" alt="" /></a></figure>
+
+                        <div class="event-info margin-25">
+                            <a class="event-date text-dark"><i class="fa fa-calendar-o"></i> {{news.date}}</a> &nbsp;
+                            <a class="event-date text-dark"><i class="fa fa-user"></i> Posted By : {{request.user}} </a>
+                            <h4>
+                                <a class="text-dark" href="{% url 'newsdetails' news.title_to_url%}">{{news.title}}</a>
+                            </h4>
+                            <div class="event-exceprt text-justify text-dark">{{news.sub_Content}}</div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+        </div>
+    </div>
+</section>
+<!--  My Client Profile section start  -->
+{% endblock content %}

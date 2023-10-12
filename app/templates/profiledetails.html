@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load embed_video_tags %}
+{% block content %}
+
+<!--  SECTION CAMPAIGNS   -->
+<section class="section-content-block" >
+    <div class="container">
+
+        <div class="row margin-top-48">
+            <div class="col-md-6 col-sm-12">
+                <a>
+                    <img src="{{profile.image.url}}" alt="serviceimg">
+                </a>
+
+                <div class="event-info mb-5">
+                    <button class="like">
+                        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                    </button>
+                    <button class="dislike">
+                        <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+                    </button>
+                    <a class="event-date text-dark" href="#"><i class="fa fa-calendar-o"></i>{{prof.date}} 05 Sep 2023</a> &nbsp;
+                    <a class="event-date text-dark"  href="#"><i class="fa fa-user"></i> Posted By : {{request.user}} </a>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <a>
+                    <h4>{{profile.title}}</h4>
+                </a>
+            </div>
+
+            <div class="event-exceprt text-justify text-dark">{{profile.content}}</div>
+        </div>
+
+        <!--Video Section Start-->
+        <div class="row margin-top-48">
+            <div class="col-md-6 col-sm-12">
+                <h4>Connect our Social Media Networks</h4>
+                <div class="footer-social-icons">
+
+                    <a class="bg-primary" href="#">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+
+                    <a class="bg-primary" href="#">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+
+                    <a class="bg-primary" href="#">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+
+                    <a class="bg-primary" href="#">
+                        <i class="fa fa-linkedin"></i>
+                    </a>
+                    <a class="bg-primary" href="#">
+                        <i class="fa fa-pinterest"></i>
+                    </a>
+                </div>
+                <div class="margin-top-48">
+                    <a class="event-date text-dark" href="#"><i class="fa fa-eye"></i> 25 Views</a> &nbsp;&nbsp;
+                    <a class="event-date text-dark"  href="#"><i class="fa fa-thumbs-o-up"></i> 10</a>
+                    <a class="event-date text-dark"  href="#"><i class="fa fa-thumbs-o-down"></i> 0</a>&nbsp;&nbsp;
+                    &nbsp;&nbsp;<a class="event-date text-dark" href="#">10 Comment</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+                <a>
+                    <div>{% video profile.video '420x315' %}</div>
+                </a>
+            </div>
+        </div> 
+        <!--Video Section Start-->
+</section>
+<!--  SECTION CAMPAIGNS  End -->
+
+
+<!-- SECTION CTA  -->   
+<section class="cta-section-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h2>We have been helping people since 40 years</h2>
+                <p>
+                    You can give support at any of our campaign venues all over the world.
+                    We have total sixty thousands donor centers and visit thousands of other venues on various occasions.                             
+                </p>
+                <a class="btn btn-theme btn-theme-invert margin-top-24 wow bounceIn" href="#">BECOME VOLUNTEER</a>
+            </div> <!--  end .col-md-8  -->
+        </div> <!--  end .row  -->
+    </div>
+</section> 
+    {% endblock content %}

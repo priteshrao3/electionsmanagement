@@ -1,0 +1,134 @@
+{% load embed_video_tags %}
+{% load static %}
+
+<div class="container">
+  <!-- Button trigger modal -->
+  <div data-toggle="modal" data-target="#exampleModal">
+
+      <!--Video Section Start-->
+      <div class="row margin-top-48">
+        <div class="col-md-6 col-sm-12">
+            <h4>Connect our Social Media Networks</h4>
+            <div class="footer-social-icons">
+
+                <a class="bg-primary" href="#">
+                    <i class="fa fa-facebook"></i>
+                </a>
+
+                <a class="bg-primary" href="#">
+                    <i class="fa fa-twitter"></i>
+                </a>
+
+                <a class="bg-primary" href="#">
+                    <i class="fa fa-instagram"></i>
+                </a>
+
+                <a class="bg-primary" href="#">
+                    <i class="fa fa-linkedin"></i>
+                </a>
+                <a class="bg-primary" href="#">
+                    <i class="fa fa-pinterest"></i>
+                </a>
+            </div>
+            <div class="margin-top-48">
+                <a class="event-date text-dark" href="#"><i class="fa fa-eye"></i> 25 Views</a> &nbsp;&nbsp;
+                <a class="event-date text-dark"  href="#"><i class="fa fa-thumbs-o-up"></i> 10</a>
+                <a class="event-date text-dark"  href="#"><i class="fa fa-thumbs-o-down"></i> 0</a>&nbsp;&nbsp;
+                &nbsp;&nbsp;<a class="event-date text-dark" href="#">10 Comment</a>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+            <a href="#">
+                <div>{% video serv.video '360x300' %}</div>
+            </a>
+        </div>
+    <!--Video Section Start-->
+      {% comment %} <a href="#">
+          <div>{% video serv.video '1100x400' %}</div>
+      </a> {% endcomment %}
+  </div>
+</div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+
+        <!--contact-area start-->
+        <div class="contact-area bg-f3f4f7 pt-105 pt-sm-65 pb-120 pb-sm-80 bg-primary">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6 col-sm-12" style="margin-bottom: 5px;">
+                <div class="section-title text-center">
+                  <h3 style="margin-top: 30px; color:white">Keep In Touch With Us</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-65 mt-sm-55">
+              
+              <div class="col-lg-6">
+                <div class="contact-form style-2 mt-sm-50">
+
+                  <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Name:*" required name="name">
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Email:*" required	name="email">
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Subject:*" required name="subject">
+                        </div>
+                      </div>
+
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Mobile:*" required name="mobile">
+                        </div>
+                      </div>
+
+                      <div class="col-lg-12">
+                        <div class="form-group">
+                          <textarea style="height: 90px;" class="form-control" name="message" placeholder="Message" required></textarea >
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <button type="submit" class="btn-common btn-full">SEND MESSAGE</button>
+                      </div>
+                    </div>
+                  </form>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+
+                  {% if messages %}
+                  {% for message in messages %}
+                    <p style="color:white">{{message}}<p>
+                  {% endfor %}
+                  
+                  {% else %}
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--contact-area end-->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

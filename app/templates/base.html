@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+    <head>
+        {% comment %} https://templates.bwlthemes.com/political_buddies/index.html {% endcomment %}
+        <meta charset="utf-8">
+        <title>electionsmanagement.com</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="description" content="Political Buddies - Election Campaign & Activism HTML5 Template">
+        <meta name="author" content="xenioushk">
+        <link rel="shortcut icon" href="{% static 'images\em64to64.png' %}" />
+
+		<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" >
+        <link href="{% static 'css/animate.css' %}" rel="stylesheet" type="text/css" >
+        <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet" type="text/css" >
+        <link href="{% static 'css/owl.theme.css' %}" rel="stylesheet" type="text/css" >
+        <link href="{% static 'css/venobox.css' %}" rel="stylesheet" type="text/css" >
+		<link href="{% static 'css/styles.css' %}" rel="stylesheet">
+        
+	</head>
+
+<body>
+<!-- Start header Section -->
+<div class="topbar" data-aos="fade-right">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-lg-6">
+                <div class="topbar-left-side">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="top-bar-social pull-left">
+                        <a target="_blank" href="https://www.facebook.com/Electionsmanagement"><i class="fa fa-facebook rounded-box"></i></a>
+                        <a target="_blank" href="https://twitter.com/ElectionsManage"><i class="fa fa-twitter rounded-box"></i></a>
+                        <a target="_blank" href="https://www.linkedin.com/company/electionsmanagment/?viewAsMember=true"><i class="fa fa-linkedin rounded-box"></i></a>
+                        <a target="_blank" href="https://in.pinterest.com/electionsmanagement/_saved/"> <i class="fa fa-pinterest rounded-box"></i></a>
+                        <a target="_blank" href="https://www.instagram.com/elections_management/"> <i class="fa fa-instagram rounded-box"></i></a>
+                        <a style="color:white" target="_blank" href="https://www.youtube.com/channel/UC0T0nhBDsL3vRoq9i_Ab7Ag/featured"> <i class="fa fa-youtube-play rounded-box"></i></a>
+                        <a style="color:white" target="_blank" href="https://www.youtube.com/channel/UC0T0nhBDsL3vRoq9i_Ab7Ag/featured"> <i class="fa-solid fa-blog"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="topbar-left-side">
+                    <ul>
+                        <li><i class="fa fa-phone"></i> <a href="tel:0800867567">+91 9450977593</a></li>
+                        <li><i class="fa fa-envelope"></i><a href= "mailto:Info@cleanercouch.co.nz">electionsmana@gmail.com</a> </li>
+                        <a href="{% url 'contact' %}" class="btn btn-theme btn-small theme-custom-box-shadow">DONATE</a>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End header Section -->
+
+
+<!-- Start Nav Section -->
+<header class="main-header clearfix" data-sticky_header="true">
+    <!--  end .top-bar  -->
+    <section class="header-wrapper navgiation-wrapper">
+        <div class="navbar navbar-default">
+
+            <!-- Start nav content area-->
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header col-md-3">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="logo" href="{% url 'home' %}">
+                        <img style="width: 130px;" alt="Logo" src="{% static 'images\logo.png' %}" class="logo-mobile">
+                    </a>
+                </div>
+            
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <div class="container col-md-9">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> NEWS <span class="caret"></span></a>
+                                <ul class="dropdown-menu" style="background: #f9fafa;">
+                                    <li class="nav-item">
+                                        <a class="dropdown-item" href="{% url 'news' %}"><li> News</li></a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="dropdown-item" href="{% url 'electionresult' %}"><li> Elections Result</li></a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="dropdown-item" href="{% url 'upcommingelectionresult' %}"><li> Upcomming Elections</li></a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <li><a href="{% url 'profile' %}">Profiles</a></li>
+                        
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">OUR SERVICES <span class="caret"></span></a>
+                                <ul class="dropdown-menu scrollable-menu" role="menu">
+
+                                    {% for service in services %}
+                                    <li class="nav-item">
+                                        <a class="dropdown-item" href="{% url 'services' service.title_to_url %}">
+                                            {{service.Service_Title|title}}</a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>                            
+                            
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> SURVEY <span class="caret"></span></a>
+                                <ul class="dropdown-menu" style="background: #f9fafa;">
+                                    <li class="nav-item">
+                                        <a class="dropdown-item" href="{% url 'exitpoll' %}"><li> Exits Poll</li></a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="dropdown-item" href="{% url 'openionpoll' %}"><li> Openions Poll</li></a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <li><a href="{% url 'carrier' %}">CARRIER</a></li>
+                            <li><a href="{% url 'blog' %}">BLOG</a></li>
+                            <li><a href="{% url 'faq' %}">FAQ</a></li>
+                            <button id="btncontact" style="margin-top: 10px;" class=" bg-primary w3-button w3-black w3-round-large"><a href="{% url 'contact' %}">Contact Us</a></button>
+                        </ul>
+                    </div>
+                </div>
+
+        </div>
+    </section>
+</header>
+<!-- End Nav Section -->
+
+
+{% block content %}{% endblock content %}
+
+
+    <!-- START FOOTER  -->
+<footer>            
+    <section class="footer-widget-area footer-widget-area-bg section-custom-bg bg-primary" data-bg_img="{% static 'images\footer_bg.jpg' %}">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                    <div class="about-footer">
+
+                        <div class="row">
+
+                            <div class="col-lg-10 col-lg-offset-1 col-md-12 col-sm-12 col-xs-12">
+                                <figure>
+                                    <a href="{% url 'home' %}" class="logo">
+                                        <img style="width: 300px;" src="{% static 'images\logo.png' %}">
+                                    </a>
+                                </figure>
+                                <p>
+                                    We are world largest and trustful democratic political party. We have been working since 1973 with a prestigious vision to helping patient to provide service.
+                                    We are working all over the world, organizing political campaign to grow awareness among the people to peace and happiness.
+                                </p>
+                                <div class="footer-social-icons">
+
+                                    <a href="#">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+
+                                    <a href="#">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+
+                                    <a href="#">
+                                        <i class="fa fa-instagram"></i>
+                                    </a>
+
+                                    <a href="#">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+
+                                    <a href="#">
+                                        <i class="fa fa-pinterest"></i>
+                                    </a>
+
+                                </div>
+                            </div> <!--  end .col-lg-9  -->
+
+                        </div> <!--  end .row -->
+
+                    </div> <!--  end .about-footer  -->
+
+                </div> <!--  end .col-md-12  -->
+
+            </div> <!--  end .row  -->
+
+            <div class="row">   
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+
+                    <div class="footer-widget">
+                        <div class="sidebar-widget-wrapper">
+                            <div class="footer-widget-header clearfix">
+                                <h3>Subscribe Us</h3>
+                            </div>
+                            <p>Signup for regular newsletter and stay up to date with our latest news.</p>
+                            <div class="footer-subscription">
+                                <p>
+                                    <input id="mc4wp_email" class="form-control" required="" placeholder="Enter Your Email" name="EMAIL" type="email">
+                                </p>
+                                <p>
+                                    <input class="btn btn-default" value="Subscribe Now" type="submit">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!--  end .col-md-4 col-sm-12 -->  
+
+                <div class="col-md-4 col-sm-12 col-xs-12">
+
+                    <div class="footer-widget clearfix">
+
+                        <div class="sidebar-widget-wrapper">
+
+                            <div class="footer-widget-header clearfix">
+                                <h3>Support Links</h3>
+                            </div>  <!--  end .footer-widget-header --> 
+
+
+                            <ul class="footer-useful-links">
+
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-caret-right fa-footer"></i>
+                                        Thalassemia
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-caret-right fa-footer"></i>
+                                        Cell Elofrosis
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-caret-right fa-footer"></i>
+                                        Myelodysasia
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-caret-right fa-footer"></i>
+                                        Voters Count
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-caret-right fa-footer"></i>
+                                        Hemolytimia
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-caret-right fa-footer"></i>
+                                        Ychromas Eosis 
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-caret-right fa-footer"></i>
+                                        Hyrcoagulable
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-caret-right fa-footer"></i>
+                                        Thrombo Xtosis
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-caret-right fa-footer"></i>
+                                        Sicklenemiaxs
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-caret-right fa-footer"></i>
+                                        Aplastic Anemia
+                                    </a>
+                                </li>                                       
+
+                            </ul>
+
+                        </div> <!--  end .footer-widget  -->        
+
+                    </div> <!--  end .footer-widget  -->            
+
+                </div> <!--  end .col-md-4 col-sm-12 --> 
+                
+                                                    
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="footer-widget">
+                        <div class="sidebar-widget-wrapper">
+
+                            <div class="footer-widget-header clearfix">
+                                <h3>Contact Us</h3>
+                            </div>  <!--  end .footer-widget-header --> 
+
+                            <div class="textwidget">                                       
+                                <i class="fa fa-envelope-o fa-contact"></i> <p><a href="#">support@donation.com</a><br/><a href="#">helpme@donation.com</a></p>
+                                <i class="fa fa-location-arrow fa-contact"></i> <p>Road-2,3/A East Shibgonj<br/>Sylhet-3100, Bangladesh</p>
+                                <i class="fa fa-phone fa-contact"></i> <p>Office:&nbsp; (+880) 0823 560 433<br/>Cell:&nbsp; (+880) 0723 161 343</p>                              
+                            </div>
+
+                        </div> <!-- end .footer-widget-wrapper  -->
+                    </div> <!--  end .footer-widget  -->
+                </div> <!--  end .col-md-4 col-sm-12 -->   
+            </div> <!-- end row  -->
+        </div> <!-- end .container  -->
+    </section> <!--  end .footer-widget-area  -->
+
+    <!--FOOTER CONTENT  -->
+
+    <section class="footer-contents">
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-12 col-sm-12 text-center">
+                    <p class="copyright-text"> Copyright 2018 - Political Buddies by BlueWindLab. All Rights Reserved. </p>
+                </div>  <!-- end .col-sm-6  -->
+            </div> <!-- end .row  -->                                    
+        </div> <!--  end .container  -->
+    </section>
+     <!--  end .footer-content  -->
+</footer>
+
+    <!-- END FOOTER  -->
+
+    <!-- Back To Top Button  -->
+
+	<!--Whats App-->
+    <a class="whatsapp" href="https://wa.me/+917839287303?text=I%27m%20Interested%20in%20Your%20Digital%20Marketing%20Servises">
+        <img src="{% static 'images\whatsappicon.png'%}" width="55px" alt="whatsapp logo">
+    </a>
+    <!--Whats App-->	
+		
+    <a id="backTop">Back To Top</a>
+    
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="{% static 'js/jquery.backTop.min.js' %}"></script>
+    <script src="{% static 'js/waypoints.min.js' %}"></script>
+    <script src="{% static 'js/waypoints-sticky.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'js/jquery.gmap.min.js' %}"></script>
+    <script src="{% static 'js/venobox.min.js' %}"></script>
+    <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'js/custom-scripts.js' %}"></script>
+	
+</body>
+</html>

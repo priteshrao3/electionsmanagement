@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+       
+<!--  My Client Profile section start  -->
+<section class="section-content-block section-pure-white-bg" >
+    <div class="container wow slideInUp">
+        <div class="row section-heading-wrapper">
+            <div class="col-md-12 col-sm-12 text-center no-img-separator">
+                <h2>My Client Profile</h2>
+                <span class="heading-separator heading-separator-horizontal"></span>
+            </div> 
+        </div> 
+
+        <div class="row">
+                {% for prof in clintprofile %}
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="highlight-layout-1 theme-custom-box-shadow theme-custom-box-animation">
+                        <figure><a href="{% url 'profiledetails' prof.title_to_url%}">
+                        <img src="{{prof.image.url}}" alt="" /></a></figure>
+
+                        <div class="event-info margin-25">
+                            <button class="like">
+                                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                            </button>
+                            <button class="dislike">
+                                <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+                            </button>
+                            <a class="event-date text-dark" href="{% url 'profiledetails' prof.title_to_url%}"><i class="fa fa-calendar-o"></i>{{prof.date}}</a> &nbsp;
+                            <a class="event-date text-dark"  href="{% url 'profiledetails' prof.title_to_url%}"><i class="fa fa-user"></i> Posted By : {{request.user}} </a>
+                            <h4>
+                                <a class="text-dark" href="{% url 'profiledetails' prof.title_to_url%}">{{prof.title}}</a>
+                            </h4>
+                            <div class="event-exceprt text-justify text-dark">{{prof.Sub_Content}}</div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}       
+        </div>
+    </div>
+</section>
+<!--  My Client Profile section start  -->
+{% endblock content %}     

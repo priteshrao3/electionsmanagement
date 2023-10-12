@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!--  MAIN CONTENT  -->
+<section class="section-content-block">
+	<div class="container bg-primary">
+		<div class="row ">
+
+			<div class ="col-md-12">
+				<h2 class="contact-title">Contact us</h2>                           
+			</div>               
+
+			<div class="col-sm-6" style="margin-bottom: 25px;">
+				<ul class="contact-info">
+					<li>
+						<span class="icon-container"><i class="fa fa-home"></i></span>
+						<address><a href="mailto:">query@yourdomain.com</a></address>
+					</li>
+					<li>
+						<span class="icon-container"><i class="fa fa-phone"></i></span>
+						<address><a href="#">+91 9170475552</a></address>
+					</li>
+				</ul>                        
+			</div>
+
+			<div class="col-sm-6">
+				<ul class="contact-info">
+					<li>
+						<span class="icon-container"><i class="fa fa-home"></i></span>
+						<address><a href="mailto:"> 240 Building 3rd Floor, Azad Vihar, Khora Colony, Sector 62A, Noida, Uttar Pradesh 201309</a></address>
+					</li>
+				</ul>                        
+			</div>
+
+		</div> 
+	</div>
+</section>
+<!-- END MAIN CONTENT  -->
+
+<!--contact-area start-->
+<div class="contact-area bg-f3f4f7 pt-105 pt-sm-65 pb-120 pb-sm-80 bg-primary">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12" style="margin-bottom: 40px;">
+				<div class="section-title text-center">
+					<h3 class="text-white" style="margin-top: 30px; color:white">Keep In Touch With Us</h3>
+					<h6 class="text-white" style="color:white">Below is the Contact Information for A Cleaning service. Call or email us to learn more about our house cleaning <br/> services in CleanPro and start enjoying a cleaner home today!</h6>
+				</div>
+			</div>
+		</div>
+
+		<div class="row mt-65 mt-sm-55">
+			<div class="col-lg-6" style="margin-bottom: 40px;">
+
+				<div class="contact-info">
+					<div class="single-contact-info">
+						<h5>Address</h5>
+						<p>Franse Stormboulevard 2 9677  JB Gasselternijveen</p>
+					</div>
+					<div class="single-contact-info">
+						<h5>Telephone Numbers</h5>
+						<p>(+88) 0111 223 445</p>
+					</div>
+					<div class="single-contact-info">
+						<h5>Email Address</h5>
+						<p>CleanProtheme@gmail.com</p>
+					</div>
+					<div class="single-contact-info">
+						<h5>Open Hours</h5>
+						<p>8:00 - 17:00 Mon - Sat</p>
+					</div>
+					<div class="social-icons style-3">
+						<a href="#"><i class="social_facebook"></i></a>
+						<a href="#"><i class="social_twitter"></i></a>
+						<a href="#"><i class="social_linkedin"></i></a>
+						<a href="#"><i class="social_pinterest"></i></a>
+					</div>
+				</div>
+
+			</div>
+			<div class="col-lg-6">
+				<div class="contact-form style-2 mt-sm-50">
+
+					<form action="" method="post">
+						{% csrf_token %}
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Name:*" required name="name">
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Email:*" required	name="email">
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Subject:*" required name="subject">
+								</div>
+							</div>
+
+							<div class="col-lg-6">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Mobile:*" required name="mobile">
+								</div>
+							</div>
+
+							<div class="col-lg-12">
+								<div class="form-group">
+									<textarea class="form-control" name="message" placeholder="Message" required></textarea >
+								</div>
+							</div>
+							<div class="col-lg-12">
+								<button type="submit" class="btn-common btn-full">SEND MESSAGE</button>
+							</div>
+						</div>
+					</form>
+
+					{% if messages %}
+					{% for message in messages %}
+						<p style="color:white">{{message}}<p>
+					{% endfor %}
+					
+					{% else %}
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--contact-area end-->
+
+<div class="google-map">
+    <iframe class="g-map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3189.9457075174446!2d174.66699341514808!3d-36.915562479924965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d415e06c778fd%3A0x8412dc8a92c624eb!2s111%20Titirangi%20Road%2C%20New%20Lynn%2C%20Auckland%200600%2C%20New%20Zealand!5e0!3m2!1sen!2sin!4v1676210713300!5m2!1sen!2sin"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+
+<!-- Cabinate Members  -->
+<section class="section-content-block section-custom-bg " id="our_team" data-bg_img="{% static 'images\achievements.jpg' %}" data-bg_size='cover' data-bg_position='top center' data-bg_opacity="0">
+
+    <div class="container">
+        <div class="row section-heading-wrapper-alt">
+            <div class="col-md-12 col-sm-12 text-center no-img-separator">
+                <h2 style="color:#555555">Cabinet Members</h2>
+                <span class="heading-separator heading-separator-horizontal"></span>
+                
+            </div> <!-- end .col-sm-10  -->
+        </div>
+    </div>
+    <div class="container wow fadeInLeft">
+
+        <div class="row">
+            {% for member in member %}
+            <div class="col-md-4 col-sm-12">
+                
+                <div class="team-layout-1 theme-custom-box-shadow theme-custom-box-animation">
+                    
+                    <figure class="team-member">
+                        <a title="Ajay Kumar">
+                            <img src="{{member.image.url}}" alt="CabinetMemberimg" />
+                        </a>
+                    </figure> <!-- end. team-member  -->
+                    <article class="team-info">
+                        <h3>{{member.name}}</h3>
+                        <h4>{{member.desination}}</h4>
+                    </article>
+                    <div class="team-content">
+                        <div class="team-social-share text-center clearfix">
+                            <a class="fa fa-facebook rectangle" href="https://www.facebook.com/Electionsmanagement" title="Facebook"></a>
+                            <a class="fa fa-twitter rectangle" href="https://twitter.com/ElectionsManage" title="Twitter"></a>
+                            <a class="fa fa-instagram rectangle" target="_blank" href="https://www.instagram.com/elections_management/"></a>
+                            <a class="fa fa-linkedin rectangle" href="https://www.linkedin.com/in/ajay-kumar-913129128?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BMdfFIHxYTbiWfzk8QD7wnQ%3D%3D" title="Linkedin"></a>
+                        </div> <!-- end .author-social-box  -->
+                    </div>
+                    
+                </div> 
+                <!--  end team layout-1 -->
+            </div>
+            {% endfor %}
+            <!--  end .col-md-4 col-sm-12  -->         
+        </div> <!-- end .row  -->
+    </div> <!-- end .container  -->
+</section>
+<!-- Cabinate Members  -->
+{% endblock content %}

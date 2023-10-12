@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!--  PAGE HEADING -->
+<section class="page-header" data-stellar-background-ratio="1.2">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <p class="page-breadcrumb">
+                    <a href="{% url 'home' %}">Home</a> / SURVEY
+                </p>
+            </div>
+        </div>
+    </div>
+</section> 
+<!-- end .page-header  -->
+
+
+<!--  SECTION ACHIEVEMENTS   -->
+<section class="section-content-block section-secondary-bg " id="achievements">
+    <div class="container">
+        <div class="row">
+            <h3>Welcome to Election Managements</h3>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="about-details">
+                    <div style="margin-bottom: 40px;">
+                        <a class="event-date text-dark" href="#"><i class="fa fa-calendar-o"></i> 05 Sep 2023</a> &nbsp;
+                        <a class="event-date text-dark"  href="#"><i class="fa fa-user"></i> Posted By : Admin</a>
+                    </div>
+                    <p class="text-justify">
+                        We view elections through a wide lens. We manage the nuts and bolts of your contests, to ensure a seamless election process. We thoroughly manage the nominations, member engagement, and final results tabulation.
+                    </p>
+                    <p class="text-justify">
+                        We guarantee your members’ votes are protected, as we do investments in state-of-the-art election security and data privacy protection.
+                    </p>
+
+                </div> <!--  end .about-details -->
+            </div> <!--  end col-lg-6  -->
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hidden-xs">
+                <figure class="theme-custom-box-shadow wow fadeIn">
+                    <img src="{% static 'images/achievements.jpg' %}" alt="achievements" class="db" />
+                </figure>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <a class="text-info" href="#"><i class="fa fa-calendar-o"></i> Post a Comment</a> &nbsp;
+            <a class="text-dark"  href="#"><i class="fa fa-share"></i></a>
+        </div>
+        <div class="col-sm-6">
+            <a class="event-date text-dark" style="text-align: left;" href="#"><h5 class="text-info">Read More >></h5></i></a>
+        </div>
+    </div>
+</section>  
+<!--  end .appointment-section  -->
+{% endblock content %}

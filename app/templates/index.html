@@ -1,0 +1,491 @@
+{% extends 'base.html' %}
+{% load embed_video_tags %}
+{% load static %}
+{% block content %}
+
+<!--  Start Slider SECTION  -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+  
+    <div class="carousel-inner" role="listbox">
+    {% for slid in slider %}
+        <div class="item {% if forloop.first %}active{% endif %}">
+            <img src="{{slid.image.url}}" alt="sliderimg">
+        </div>
+    {% endfor %}
+    </div>
+  
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+<!--  End Slider SECTION  -->
+  
+<!--  SERVICES SECTION  -->
+<section class="section-content-block section-pure-white-bg" >
+    <div class="container wow slideInUp">
+        
+        <div class="container">
+            <div class="row section-heading-wrapper">
+                <div class="col-md-12 col-sm-12 text-center no-img-separator">
+                    <h3 class="extra-large welcome-h">Welcome to Election Managements </h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <p style="padding: 10px;" class="text-set">
+                    Being a full-service election management company, we are always there to help to identify the voting method that makes the most sense for you. To migrate elections from paper to online ballots, We’ve worked with countless clients, and we have simplified the process by introducing hybrid elections incorporating both paper and internet voting. To make sure seamless elections in the future,
+                    We’re committed to not only managing a stress-free election but forging a lasting partnership.
+                </p>
+            </div>
+        </div>
+        <!--  Start Service SECTION  -->
+        <div class="row section-heading-wrapper">
+            <div class="col-md-12 col-sm-12 text-center no-img-separator">
+                <h2 class="extra-large"> Our Services </h2>
+                <span class="heading-separator heading-separator-horizontal"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="highlight-carousel text-center owl-carousel"  data-nav="false" data-dots="true" data-autoplaytimeout="50000">
+                {% for serv in services %}
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="highlight-layout-1 theme-custom-box-shadow theme-custom-box-animation">
+                        <figure><a href="{% url 'services' serv.title_to_url%}">
+                            <img src="{{serv.First_Service_Image.url}}" alt="" /></a></figure>
+                            <a href="{% url 'services' serv.title_to_url%}"><h4>{{serv.Service_Title|title}}</h4></a>
+                        <a href="{% url 'services' serv.title_to_url%}" class="btn btn-theme btn-small theme-custom-box-shadow">Read More <i class="fa fa-long-arrow-right"></i></a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!--  End Service SECTION  -->
+    </div>
+</section>
+<!--  End SERVICES SECTION-->
+
+<!--  Start Why choose us SECTION-->
+<section class="section-feat-about-us bg-primary ">
+    <div class="side-background">
+        <div class="col-md-6 feat-img-side-bg visible-lg">
+            <div class="row">
+                <img src="{% static 'images\choose-us.jpg' %}" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12 col-lg-offset-6 about-us-info-block">
+                <div class="row">
+                    <div class="about-us-info text-left wow fadeInLeft">
+                        <h3 class="about-us-slogan about-us-slogan-bold text-light-color" style="color:white">
+                            Why choose us?
+                        </h3>
+                        <div class="margin-top-48 text-light-color">
+
+                            <p class="text-light-color padding-top-24 text-justify text-white" style="color:white">
+                                You have more time to spend working for your members, by managing every single aspect of your election. Glance at the services you will have by getting election management services from us<br>
+                            </p>
+
+                            <p class="margin-top-24 text-light-color"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 
+<!--  End Why choose us SECTION-->
+
+
+<!--  Optimize Elections SECTION  -->
+<section class="section-content-block section-custom-bg " data-bg_img="{% static 'images/vote_countdown.jpg' %}" data-bg_size='cover' data-bg_position='center center' data-bg_opacity="0" data-b>
+    <div class="container">
+
+        <div class="row section-heading-wrapper-alt">
+            <div class="col-md-12 col-sm-12 text-center no-img-separator">
+                <h2 style="color:white" class="optimizeset"> We Optimize Elections</h2>
+                <span class="heading-separator heading-separator-horizontal"></span>
+
+            </div>
+        </div>
+
+        <div class="row optimize setOpt" style="color:white">
+            <div class="col-md-4">
+                <ul>
+                    <li>
+                        Political Research
+                    </li>
+                    <li>
+                        Political Advertising companies
+                    </li>
+                    <li>
+                        Political Survey
+                    </li>
+                    <li>
+                        Political Analytics
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul>
+                    <li>
+                        Live Broadcasting
+                    </li>
+                    <li>
+                        Exit-Poll
+                    </li>
+                    <li>
+                        Opinion Poll
+                    </li>
+                    <li>
+                        Social Media Management
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul>
+                    <li>
+                        Elections War-Room
+                    </li>
+                    <li>
+                        Private Call Center
+                    </li>
+                    <li>
+                        Download Voter List
+                    </li>
+                    <li>
+                        Elections Result
+                    </li>
+                </ul>
+            </div>
+        </div>
+</section>
+<!-- End Optimize Elections SECTION  -->
+
+
+<!--  My Client Profile section start  -->
+<section class="section-content-block section-pure-white-bg" >
+    <div class="container wow slideInUp">
+        <div class="row section-heading-wrapper">
+            <div class="col-md-12 col-sm-12 text-center no-img-separator">
+                <h2>My Client Profile</h2>
+                <span class="heading-separator heading-separator-horizontal"></span>
+            </div> 
+        </div> 
+
+        <div class="row">
+            <div class="highlight-carousel text-center owl-carousel"  data-nav="false" data-dots="true" data-autoplaytimeout="70000">
+                {% for prof in clintprofile %}
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="highlight-layout-1 theme-custom-box-shadow theme-custom-box-animation">
+                        <figure><a href="{% url 'profiledetails' prof.title_to_url%}">
+                        <img src="{{prof.image.url}}" alt="" /></a></figure>
+
+                        <div class="event-info margin-25">
+                            <button class="like">
+                                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                            </button>
+                            <button class="dislike">
+                                <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+                            </button>
+                            <a class="event-date text-dark" href="{% url 'profiledetails' prof.title_to_url%}"><i class="fa fa-calendar-o"></i> {{prof.date}}</a> &nbsp;
+                            <a class="event-date text-dark"><i class="fa fa-user"></i> Posted By : {{request.user}} </a>
+                            <h4>
+                                <a class="text-dark" href="{% url 'profiledetails' prof.title_to_url%}">{{prof.title}}</a>
+                            </h4>
+                            <div class="event-exceprt text-justify text-dark">{{prof.Sub_Content}}</div>
+                        </div>
+                        
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 text-center">
+                <a href="{% url 'profile' %}" class="btn btn-theme SetViewMore">- View More-</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--  My Client Profile section End  -->
+
+
+<!--  SECTION GALLERY  -->
+<section class="section-content-block section-pure-white-bg">
+
+    <div class="container">
+        <div class="row section-heading-wrapper">
+            <div class="col-md-12 col-sm-12 text-center no-img-separator">
+                <h2>OUR GALLERY</h2>
+                <span class="heading-separator"></span>
+                <h4>Our prestigious voluntary work on campaigns by the team</h4>
+            </div>                      
+        </div>
+    </div>
+
+    <div class="container wow fadeInUp">
+        <div class="row no-padding-gallery">
+
+            {% for gallery in gallery %}
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 gallery-container">
+                <a class="gallery-light-box"  data-gall="myGallery" href="{{gallery.image.url}}">
+                    <figure class="gallery-img">
+                        <img src="{{gallery.image.url}}" alt="gallery image" />
+                    </figure>
+                </a>
+            </div>
+            {% endfor %}
+            
+
+        </div> <!-- end .row  -->
+    </div><!-- end .container-fluid  -->
+
+</section> <!-- end .section-content-block  -->
+
+
+<!-- Cabinate Members  -->
+<section class="section-content-block section-custom-bg " id="our_team" data-bg_img="{% static 'images\achievements.jpg' %}" data-bg_size='cover' data-bg_position='top center' data-bg_opacity="0">
+
+    <div class="container">
+        <div class="row section-heading-wrapper-alt">
+            <div class="col-md-12 col-sm-12 text-center no-img-separator">
+                <h2 style="color:#555555">Cabinet Members</h2>
+                <span class="heading-separator heading-separator-horizontal"></span>
+                
+            </div> <!-- end .col-sm-10  -->
+        </div>
+    </div>
+    <div class="container wow fadeInLeft">
+
+        <div class="row">
+            {% for member in member %}
+            <div class="col-md-4 col-sm-12">
+                
+                <div class="team-layout-1 theme-custom-box-shadow theme-custom-box-animation">
+                    
+                    <figure class="team-member">
+                        <a title="Ajay Kumar">
+                            <img src="{{member.image.url}}" alt="CabinetMemberimg" />
+                        </a>
+                    </figure> <!-- end. team-member  -->
+                    <article class="team-info">
+                        <h3>{{member.name}}</h3>
+                        <h4>{{member.desination}}</h4>
+                    </article>
+                    <div class="team-content">
+                        <div class="team-social-share text-center clearfix">
+                            <a class="fa fa-facebook rectangle" href="https://www.facebook.com/Electionsmanagement" title="Facebook"></a>
+                            <a class="fa fa-twitter rectangle" href="https://twitter.com/ElectionsManage" title="Twitter"></a>
+                            <a class="fa fa-instagram rectangle" target="_blank" href="https://www.instagram.com/elections_management/"></a>
+                            <a class="fa fa-linkedin rectangle" href="https://www.linkedin.com/in/ajay-kumar-913129128?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BMdfFIHxYTbiWfzk8QD7wnQ%3D%3D" title="Linkedin"></a>
+                        </div> <!-- end .author-social-box  -->
+                    </div>
+                    
+                </div> 
+                <!--  end team layout-1 -->
+            </div>
+            {% endfor %}
+            <!--  end .col-md-4 col-sm-12  -->         
+        </div> <!-- end .row  -->
+    </div> <!-- end .container  -->
+</section>
+<!-- Cabinate Members  -->
+
+
+<!-- SECTION TESTIMONIAL -->
+<section class="section-content-block section-custom-bg" data-bg_size='cover' data-bg_position='top center' data-bg_opacity="0" data-bg_img="{% static 'images\footer_bg.jpg' %}">
+    <div class="container theme-custom-box-shadow  section-pure-white-bg wow fadeInUp">
+        <div class="row">
+            <div class="col-lg-12" style="margin-bottom: 30px;">
+				<div class="section-title text-center">
+                    <h3 class="people-quote" style="margin-top: 30px;">Our Customer Feedback</h3>
+				</div>
+			</div>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="testimonial-container owl-carousel text-left" data-items  ="2">
+                    
+                    {% for testo in testo %}
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="testimony-layout-1">
+                            <p class="testimony-text">{{testo.content}}</p>
+                            <div class="col-sm-6 col-md-12 col-sm-12">
+                                <img src="{{testo.image.url}}" alt="" />
+                                <h6>{{testo.name|title}}</h6>
+                                <span>{{testo.memberpost|title}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-sm-6">
+                        <a href="#">
+                            <div>{% video testo.video '420x315' %}</div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>  <!--  end .row  -->   
+            </div> 
+        </div>
+    </div> 
+</section>
+<!--SECTION TESTIMONIAL-->
+        
+<!-- News SECTION  Start-->
+<section class="section-content-block section-home-blog section-pure-white-bg">
+    <div class="container wow fadeInUp">
+
+        <div class="row section-heading-wrapper">
+            <div class="col-md-12 col-sm-12 text-center no-img-separator">
+                <h2>Recent News & Activities</h2>
+                <span class="heading-separator"></span>
+                <h4>Latest news and statements regarding giving political movements</h4>
+            </div> <!-- end .col-sm-10  -->     
+        </div> <!-- end .row  -->
+
+        <div class="row">
+            <div class="highlight-carousel text-center owl-carousel"  data-nav="false" data-dots="true" data-autoplaytimeout="70000">
+                {% for news in news %}
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="highlight-layout-1 theme-custom-box-shadow theme-custom-box-animation">
+                        <figure><a href="{% url 'newsdetails' news.title_to_url%}">
+                        <img src="{{news.image.url}}" alt="" /></a></figure>
+
+                        <a class="event-date text-dark" href="{% url 'newsdetails' news.title_to_url%}"><i class="fa fa-calendar-o"></i> {{news.date}}</a> &nbsp;
+                        <a class="event-date text-dark"><i class="fa fa-user"></i> 10 Comment</a>  
+                        <h4><a class="text-dark" href="{% url 'newsdetails' news.title_to_url%}">{{news.title}}</a></h4>
+                        <div>
+                            <div class="event-exceprt text-justify text-dark">{{news.sub_Content}}</div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <!-- end row  -->
+        <div class="row">
+            <div class="col-sm-12 col-md-4 col-md-offset-4 text-center">
+                <a href="{% url 'news' %}" class="btn btn-theme margin-top-48">- Load More News -</a>
+            </div>
+        </div> 
+
+    </div>
+</section> 
+<!-- News SECTION  END-->
+
+
+<!--contact-area start-->
+<div class="contact-area bg-f3f4f7 pt-105 pt-sm-65 pb-120 pb-sm-80 bg-primary">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12" style="margin-bottom: 40px;">
+				<div class="section-title text-center">
+					<h3 style="margin-top: 30px; color:white">Keep In Touch With Us</h3>
+					<h6 style="color:white">Below is the Contact Information for A electionsmanagement service.<br> Call or email us to more about our house.</h6>
+				</div>
+			</div>
+		</div>
+
+		<div class="row mt-65 mt-sm-55">
+			<div class="col-lg-6" style="margin-bottom: 40px;">
+                <div class="contact-info">
+					<div class="single-contact-info">
+						<h5>Address</h5>
+						<p>Franse Stormboulevard 2 9677  JB Gasselternijveen</p>
+					</div>
+					<div class="single-contact-info">
+						<h5>Telephone Numbers</h5>
+						<p>(+88) 0111 223 445</p>
+					</div>
+					<div class="single-contact-info">
+						<h5>Email Address</h5>
+						<p>CleanProtheme@gmail.com</p>
+					</div>
+					<div class="single-contact-info">
+						<h5>Open Hours</h5>
+						<p>8:00 - 17:00 Mon - Sat</p>
+					</div>
+					<div class="social-icons style-3">
+						<a href="#"><i class="social_facebook"></i></a>
+						<a href="#"><i class="social_twitter"></i></a>
+						<a href="#"><i class="social_linkedin"></i></a>
+						<a href="#"><i class="social_pinterest"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="contact-form style-2 mt-sm-50">
+
+					<form action="" method="post">
+						{% csrf_token %}
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Name:*" required name="name">
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Email:*" required	name="email">
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Subject:*" required name="subject">
+								</div>
+							</div>
+
+							<div class="col-lg-6">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Mobile:*" required name="mobile">
+								</div>
+							</div>
+
+							<div class="col-lg-12">
+								<div class="form-group">
+									<textarea class="form-control" name="message" placeholder="Message" required></textarea >
+								</div>
+							</div>
+							<div class="col-lg-12">
+								<button type="submit" class="btn-common btn-full">SEND MESSAGE</button>
+							</div>
+						</div>
+					</form>
+
+					{% if messages %}
+					{% for message in messages %}
+                        <p style="color:white">{{message}}<p>
+					{% endfor %}
+					
+					{% else %}
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--contact-area end-->
+
+
+<div class="google-map">
+    <iframe class="g-map"
+        src="https://maps.google.com/maps?q=delhi%20india&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+{% endblock content %}

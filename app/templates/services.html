@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load embed_video_tags %}
+{% load static %}
+{% block content %}
+
+<!--  SECTION CAMPAIGNS   -->
+<section class="section-content-block" >
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6 col-sm-12">
+                <a href="#">
+                    <img src="{{serv.First_Service_Image.url}}" alt="serviceimg">
+                </a>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+                    <h4>{{serv.Service_Title|title}}</h4>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+                    <p>We offer Election Campaigning Services in UP. Find details here about our company 
+                        including contact address for election marketing service.</p>
+            </div>
+        
+        </div>
+        <p>{{serv.First_Service_Content}}</p>
+    </div> 
+</section>
+{% include 'popup.html'%}
+
+<!--  SERVICES SECTION  -->
+<section class="section-content-block section-pure-white-bg" >
+    <div class="container wow slideInUp">
+        <!--  Start Service SECTION  -->
+        <div class="row section-heading-wrapper">
+            <div class="col-md-12 col-sm-12 text-center no-img-separator">
+                <h2 class="extra-large"> Our Services </h2>
+                <span class="heading-separator heading-separator-horizontal"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="highlight-carousel text-center owl-carousel"  data-nav="false" data-dots="true" data-autoplaytimeout="50000">
+                {% for serv in services %}
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="highlight-layout-1 theme-custom-box-shadow theme-custom-box-animation">
+                        <figure><a href="{% url 'services' serv.title_to_url%}">
+                            <img src="{{serv.First_Service_Image.url}}" alt="" /></a></figure>
+                            <a href="{% url 'services' serv.title_to_url%}"><h4>{{serv.Service_Title|title}}</h4></a>
+                        <a href="{% url 'services' serv.title_to_url%}" class="btn btn-theme btn-small theme-custom-box-shadow">Read More <i class="fa fa-long-arrow-right"></i></a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!--  End Service SECTION  -->
+    </div>
+</section>
+<!--  End SERVICES SECTION-->
+
+<!--  SECTION CAMPAIGNS  End -->
+        <!-- SECTION CTA  -->   
+        <section class="cta-section-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h2>We have been helping people since 40 years</h2>
+                        <p>
+                            You can give support at any of our campaign venues all over the world.
+                            We have total sixty thousands donor centers and visit thousands of other venues on various occasions.                             
+                        </p>
+                        <a class="btn btn-theme btn-theme-invert margin-top-24 wow bounceIn" href="#">BECOME VOLUNTEER</a>
+                    </div> <!--  end .col-md-8  -->
+                </div> <!--  end .row  -->
+            </div>
+        </section> 
+
+    {% endblock content %}

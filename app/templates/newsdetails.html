@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load embed_video_tags %}
+{% block content %}
+
+<!--  SECTION CAMPAIGNS   -->
+<section class="section-content-block" >
+    <div class="container">
+
+        <div class="row margin-top-48">
+            <div class="col-md-6 col-sm-12">
+                <a>
+                    <img src="{{new.image.url}}" alt="serviceimg">
+                </a>
+
+                <div class="event-info margin-25">
+                    <a class="event-date text-dark"><i class="fa fa-calendar-o"></i> {{new.date}}</a> &nbsp;
+                   <a class="event-date text-dark"><i class="fa fa-user"></i> Posted By : {{request.user}} </a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+                <a>
+                    <h4>{{new.title}}</h4>
+                    <br><div class="event-exceprt text-justify text-dark">{{new.sub_Content}}</div>
+                </a>
+            </div>
+        </div> 
+    <br><div class="event-exceprt text-justify text-dark">{{new.content}}</div>
+
+
+<!--Video Section Start-->
+<div class="row margin-top-48">
+    <div class="col-md-6 col-sm-12">
+        <h4>Connect our Social Media Networks</h4>
+        <div class="footer-social-icons">
+
+            <a class="bg-primary" href="https://www.facebook.com/Electionsmanagement">
+                <i class="fa fa-facebook"></i>
+            </a>
+
+            <a class="bg-primary" href="https://twitter.com/ElectionsManage">
+                <i class="fa fa-twitter"></i>
+            </a>
+
+            <a class="bg-primary" href="https://www.instagram.com/elections_management/">
+                <i class="fa fa-instagram"></i>
+            </a>
+
+            <a class="bg-primary" href="https://www.linkedin.com/company/electionsmanagment/?viewAsMember=true">
+                <i class="fa fa-linkedin"></i>
+            </a>
+            <a class="bg-primary" href="https://in.pinterest.com/electionsmanagement/_saved/">
+                <i class="fa fa-pinterest"></i>
+            </a>
+        </div>
+        <div class="margin-top-48">
+            <a class="event-date text-dark"><i class="fa fa-eye"></i> 25 Views</a> &nbsp;&nbsp;
+            <a class="event-date text-dark"><i class="fa fa-thumbs-o-up"></i> 10</a>
+            <a class="event-date text-dark"><i class="fa fa-thumbs-o-down"></i> 0</a>&nbsp;&nbsp;
+            &nbsp;&nbsp;<a class="event-date text-dark" href="#">10 Comment</a>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-sm-12">
+        <a>
+            <div>{% video new.video '420x315' %}</div>
+        </a>
+    </div>
+</div> 
+<!--Video Section Start-->
+        
+</section>
+<!--  SECTION CAMPAIGNS  End -->
+
+
+<!-- News SECTION  Start-->
+<section class="section-content-block section-home-blog section-pure-white-bg">
+    <div class="container wow fadeInUp">
+
+        <div class="row section-heading-wrapper">
+            <div class="col-md-12 col-sm-12 text-center no-img-separator">
+                <h2>Recent News & Activities</h2>
+                <span class="heading-separator"></span>
+                <h4>Latest news and statements regarding giving political movements</h4>
+            </div> <!-- end .col-sm-10  -->     
+        </div> <!-- end .row  -->
+
+        <div class="row">
+            <div class="highlight-carousel text-center owl-carousel"  data-nav="false" data-dots="true" data-autoplaytimeout="70000">
+                {% for news in newsall %}
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="highlight-layout-1 theme-custom-box-shadow theme-custom-box-animation">
+                        <figure><a href="{% url 'newsdetails' news.title_to_url%}">
+                        <img src="{{news.image.url}}" alt="" /></a></figure>
+
+                        <a class="event-date text-dark" href="{% url 'newsdetails' news.title_to_url%}"><i class="fa fa-calendar-o"></i> {{news.date}}</a> &nbsp;
+                        <a class="event-date text-dark"><i class="fa fa-user"></i> 10 Comment</a>  
+                        <h4><a class="text-dark" href="{% url 'newsdetails' news.title_to_url%}">{{news.title}}</a></h4>
+                        <div>
+                            <div class="event-exceprt text-justify text-dark">{{news.sub_Content}}</div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <!-- end row  -->
+        <div class="row">
+            <div class="col-sm-12 col-md-4 col-md-offset-4 text-center">
+                <a href="{% url 'news' %}" class="btn btn-theme margin-top-48">- Load More News -</a>
+            </div>
+        </div> 
+
+    </div>
+</section> 
+<!-- News SECTION  END-->
+{% endblock content %}

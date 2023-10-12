@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+ <!--  SECTION CAMPAIGNS   -->
+ <section class="section-content-block" >
+    <div class="container">
+        <div class="row margin-top-48">
+            <h4>Upcomming Elections 2023</h4>
+            <p>Election to the state assembly of Karnataka is inching closer as the current legislative 
+                assembly is going to complete its 5 year tenure on May 24, 2023. The Election Commission of 
+                India is yet to issue the notification for the election in the state but the political fever 
+                is high in the state as the political parties and its leader are hitting the battleground hard
+                    and strengthening their prospects.</p>
+        </div> 
+</section>
+<!--  SECTION CAMPAIGNS  End -->
+
+
+
+<!--  SECTION Election  Result Start -->
+<div class="container">
+<div class="col-sm-10">
+{% if upcommingelections %}
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">STATE NAME</th>
+            <th scope="col">ELECTION DATES</th>
+            <th scope="col">RULING PARTY</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for elect in upcommingelections %}
+            <tr>
+            <td><a class="statetext" href="#">{{elect.state|title}}</a></td>
+            <td>{{elect.date}}</td>
+            <td>{{elect.Ruling_Party}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    {% else %}
+        <h4 class="text-center alert alert-warning"> No Data </h4>
+{% endif %}   
+    </div>
+
+</div>
+<!--  SECTION Election  Result End -->
+
+
+<!--  SERVICES SECTION  -->
+<section class="section-content-block section-pure-white-bg" >
+    <div class="container wow slideInUp">
+        <!--  Start Service SECTION -->
+        <div class="row section-heading-wrapper">
+            <div class="col-md-12 col-sm-12 text-center no-img-separator">
+                <h2 class="extra-large"> Our Services </h2>
+                <span class="heading-separator heading-separator-horizontal"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="highlight-carousel text-center owl-carousel"  data-nav="false" data-dots="true" data-autoplaytimeout="50000">
+                {% for serv in services %}
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="highlight-layout-1 theme-custom-box-shadow theme-custom-box-animation">
+                        <figure><a href="{% url 'services' serv.title_to_url%}">
+                            <img src="{{serv.First_Service_Image.url}}" alt="" /></a></figure>
+                            <a href="{% url 'services' serv.title_to_url%}"><h4>{{serv.Service_Title|title}}</h4></a>
+                        <a href="{% url 'services' serv.title_to_url%}" class="btn btn-theme btn-small theme-custom-box-shadow">Read More <i class="fa fa-long-arrow-right"></i></a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!--  End Service SECTION  -->
+    </div>
+</section>
+<!--  End SERVICES SECTION-->
+{% endblock content %}

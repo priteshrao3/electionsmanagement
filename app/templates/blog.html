@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!--  SECTION ACHIEVEMENTS   -->
+<section class="section-content-block section-secondary-bg " id="achievements">
+    <div class="container">
+        {% for blog in blogpost %}
+        <div class="row">
+
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hidden-xs">
+                <figure class="theme-custom-box-shadow wow fadeIn">
+                    <img src="{{blog.image.url}}" alt="achievements" class="db" />
+                </figure>
+
+                <div style="margin: 20px;">
+                    <a class="bsharebtn text-dark text-align-left" href="#"><i class="fa-1x fa fa-share-alt" aria-hidden="true"></i></a>&nbsp; &nbsp;
+                    <a class="event-date text-dark"  href="#"><i class="fa fa-user"></i> Posted By : {{request.user}}</a>&nbsp; &nbsp;
+                    <a class="event-date text-dark" href="#"><i class="fa fa-calendar-o"></i>{{blog.date}} 05 Sept 2023</a>
+                </div>
+            </div>
+
+            <h3>{{blog.title}}</h3>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="about-details">
+                    <p class="text-justify">
+                       {{blog.Sub_Content}}
+                    </p>
+                </div>
+            </div> 
+
+            <div class="col-sm-6">
+                <a class="text-info" href="#"><h6 class="text-primary">Post a Comment</h6></a> &nbsp;
+            </div>
+
+        </div>
+        <p class="text-justify">
+            {{blog.content}}
+         </p>
+        {% endfor %}
+    </div>
+</section>  
+<!--  end .appointment-section  -->
+{% endblock content %}
